@@ -1,103 +1,66 @@
-import Image from "next/image";
+import type { Metadata } from 'next';
 
-export default function Home() {
+import HeroSection from '@/components/HeroSection';
+import ComplianceBadges from '@/components/ComplianceBadges.client';
+import PillarsSection from '@/components/PillarsSection';
+import FAQSection from '@/components/FAQSection.client';
+import ContactFormSidebar from '@/components/ContactFormSidebar.client';
+
+export const metadata: Metadata = {
+  title: 'HIPAA Questions – Clear Answers, Expert Guidance',
+  description: 'Get clear, reliable answers to your HIPAA questions. Search our comprehensive knowledge base, find human-verified information, and connect with compliance specialists. HIPAAquestions.com helps you navigate complex healthcare regulations with confidence.',
+  openGraph: {
+    title: 'HIPAA Questions – Clear Answers, Expert Guidance',
+    description: 'Your trusted resource for navigating HIPAA compliance with ease and confidence.',
+    images: [
+      {
+        url: '/og-image-hipaaquestions-v2.png',
+        width: 1200,
+        height: 630,
+        alt: 'HIPAAquestions.com - Clear HIPAA Answers',
+      },
+    ],
+    siteName: 'HIPAAquestions.com',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HIPAA Questions – Clear Answers, Expert Guidance',
+    description: 'Your trusted resource for navigating HIPAA compliance with ease and confidence.',
+    // images: ['/twitter-image-hipaaquestions-v2.png'],
+  },
+};
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="bg-[#0e223d] container mx-auto px-4 md:px-8 lg:px-12">
+      <div className="flex flex-col items-center gap-6 md:gap-8 py-28 md:py-40">
+        <HeroSection />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div className="mt-16 md:mt-20 gap-6 flex justify-center flex-wrap">
+        <ComplianceBadges />
+      </div>
+
+      <div className="pt-24 md:pt-32">
+        <PillarsSection />
+      </div>
+      
+      <div className="w-full max-w-[90rem] pt-16 sm:pt-24 pb-0">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-x-12 items-start">
+          <div className="lg:col-span-8 mt-20 md:mt-24 space-y-10">
+            <FAQSection />
+          </div>
+          
+          <div className="lg:col-span-4 ml-0 lg:ml-10 xl:ml-14 mt-12 lg:mt-0">
+            <ContactFormSidebar />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      
+      {/* <CTASection /> */}
+      <div className="pt-16 md:pt-24 pb-12">
+        {/* Placeholder for Footer Content. Consider creating a <Footer /> component here. */}
+      </div>
+    </main>
   );
 }
